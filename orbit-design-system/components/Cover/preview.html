@@ -8,47 +8,37 @@
   html, body { margin:0; height:100%; }
   body { background:var(--bg); color:var(--ink); font-family:var(--font-sans); overflow:hidden; }
   .cover { position:relative; height:288px; width:960px; overflow:hidden; }
-  .art { position:absolute; top:0; left:480px; width:480px; height:288px; overflow:hidden; }
-  .art svg { display:block; width:480px; height:288px; }
-  .acc { fill:var(--accent); }
-  .deep { fill:var(--surface-2); }
-  .gig { fill:var(--gig); }
-  .info { fill:var(--info); }
-  .bad { fill:var(--bad); }
-  .blk { rx:var(--radius-6); }
-  .ring { fill:none; stroke:var(--ink-3); stroke-width:1; }
-  .ring.soft { stroke:var(--line-2); }
+  .art { position:absolute; left:480px; right:24px; bottom:24px; }
+  .art svg { display:block; width:456px; height:40px; }
+  .c { rx:var(--radius-3); }
+  .acc { fill:var(--accent); } .ink { fill:var(--ink); } .info { fill:var(--info); }
+  .gig { fill:var(--gig); } .warn { fill:var(--warn); } .bad { fill:var(--bad); }
   .words { position:absolute; left:24px; bottom:24px; max-width:440px; }
   .name { margin:0; font-size:120px; line-height:.9; font-weight:600; letter-spacing:-.02em; color:var(--ink); }
-  .tag { margin:10px 0 0 6px; font-size:14px; line-height:20px; color:var(--ink-2); }
+  .ver { margin:12px 0 0 6px; font-family:var(--font-mono); font-size:13px; line-height:20px; color:var(--ink-3); letter-spacing:.02em; }
 </style>
 </head>
 <body>
 <div class="cover">
 <div class="art" aria-hidden="true">
-<svg viewBox="0 0 480 288" width="480" height="288">
+<svg viewBox="0 0 456 40" width="456" height="40">
 <!--
-  blocks      accent 160×200 bled off the top (the one brand hue, largest) · surface-2 280×232 bleeding right and bottom (the panel depth) · gig 96×56 and info 48×56 (the Client and Career tracker colours) · bad 56×24 pill once (it only ever means a deadline) — ≈38% of 960×288
-  arrangement one tall accent slab with the tracker blocks under it, the deep panel beside it, gutters space-16
-  pattern     orbits, from the name and the 6–7px status dots the UI marks state with: three rings around one centre on the deep block, a dot of accent / gig / info riding each ring
-  scales      gutters space-16; ring radii 56·88·120 (space-8 multiples); corners radius-6, the D-day pill rx 12 (half of 24)
+  blocks      one row of colour chips, right-aligned on the name's baseline: accent 64×40 (the one brand hue, widest) · ink, info, gig, warn, bad 24×40 each (the state colours stay small)
+  arrangement a single strip, gaps space-8; nothing above it — the ground stays empty (v33 "조용함이 기본값이다")
+  pattern     none, by request: no orbits, no ornament
+  scales      gaps space-8; corners radius-3 (the badge radius)
 -->
-<rect class="acc blk" x="24" y="-6" width="160" height="200" rx="6"/>
-<rect class="gig blk" x="24" y="210" width="96" height="56" rx="6"/>
-<rect class="info blk" x="136" y="210" width="48" height="56" rx="6"/>
-<rect class="deep blk" x="200" y="64" width="296" height="240" rx="6"/>
-<rect class="bad" x="200" y="24" width="56" height="24" rx="12"/>
-<circle class="ring" cx="344" cy="184" r="56"/>
-<circle class="ring soft" cx="344" cy="184" r="88"/>
-<circle class="ring soft" cx="344" cy="184" r="120"/>
-<circle class="acc" cx="384" cy="144" r="7"/>
-<circle class="gig" cx="256" cy="184" r="7"/>
-<circle class="info" cx="429" cy="100" r="7"/>
+<rect class="acc c" x="200" y="0" width="64" height="40" rx="3"/>
+<rect class="ink c" x="272" y="0" width="24" height="40" rx="3"/>
+<rect class="info c" x="304" y="0" width="24" height="40" rx="3"/>
+<rect class="gig c" x="336" y="0" width="24" height="40" rx="3"/>
+<rect class="warn c" x="368" y="0" width="24" height="40" rx="3"/>
+<rect class="bad c" x="400" y="0" width="24" height="40" rx="3"/>
 </svg>
 </div>
 <div class="words">
 <h1 class="name">Orbit</h1>
-<p class="tag">마감 · 지금 할 일 · 메일 · 공부를 한 화면에 모으는 개인 대시보드</p>
+<p class="ver">v33 · 260924</p>
 </div>
 </div>
 </body>
