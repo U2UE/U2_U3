@@ -1,6 +1,6 @@
 # BriefTile
 
-브리핑 줄의 한 칸: 왼쪽 키(1행)와 한 줄 설명(2행), 오른쪽에 값 하나. 높이 84px, padding 14px 18px, 값은 두 행에 걸쳐 수직 중앙.
+브리핑 줄의 한 칸: 왼쪽 키(1행)와 한 줄 설명(2행), 오른쪽에 값 하나. 높이 84px, padding 14px 18px, 값은 설명 행(2행)과 같은 baseline에 놓인다. 키는 1행 전체 폭. 값을 세로 중앙에 두지 않는다 — 어느 줄에도 속하지 않게 된다.
 
 - `.k` label 11px 대문자 .08em ink-3 / `.s` 14px ink 1줄 말줄임 / `.v` tile-value 32px + `<small>` tile-unit.
 - 값 슬롯은 숫자·라틴만: DEADLINE `D-1` · NOW `3<small>건</small>`(오늘 실행 가능 후보 수) · INBOX `9<small>/ 10통</small>` · STUDY `2<small>일</small>`(미수강 일수).
