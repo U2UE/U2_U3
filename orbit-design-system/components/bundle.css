@@ -31,9 +31,9 @@ section.panel{background:var(--surface);border:1px solid var(--line);border-radi
 section.panel.sample{border-style:dashed;border-color:var(--line-2);background:transparent}
 .ph{display:flex;align-items:center;gap:10px;padding:9px 16px;border-bottom:1px solid var(--line)}
 section.panel.sample .ph{border-bottom-style:dashed;border-bottom-color:var(--line-2)}
-.ph h2{margin:0;font-size:14px;font-weight:600;flex:1;min-width:0}
+.ph h2{margin:0;font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;flex:1;min-width:0}
 .ph .src{font-size:12px;color:var(--ink-3)}
-.ph h2 .h2s{font-size:12px;font-weight:400;color:var(--ink-3);margin-left:6px}
+.ph h2 .h2s{font-size:12px;font-weight:400;color:var(--ink-3);margin-left:6px;letter-spacing:0;text-transform:none}
 .chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
 .chip.live{color:var(--accent-ink);background:var(--accent-soft)}
 .chip.live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.4s ease-in-out infinite}
@@ -139,19 +139,18 @@ section.panel.sample .ph{border-bottom-style:dashed;border-bottom-color:var(--li
 .bt{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:6px;height:84px;padding:14px 18px;min-width:0;position:relative;overflow:hidden} /* v33: 2행 + 우측 값, 높이 84px 고정 */
 .bt::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--line-2)}
 .bt:hover{border-color:var(--line-2)}
-.bt .k{grid-column:1;grid-row:1;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bt .k{grid-column:1;grid-row:1;align-self:baseline;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bt .v{grid-column:2;grid-row:1/3;align-self:center;text-align:right;max-width:170px;font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bt .v small{font-size:13px;font-weight:500;line-height:1;color:var(--ink-3);margin-left:6px;letter-spacing:0} /* tile-unit: 값과 baseline 정렬 */
 .bt .s{grid-column:1;grid-row:2;font-size:14px;color:var(--ink);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bt.ok::before{background:var(--accent)} .bt.ok .v{color:var(--accent-ink)}
 .bt.warn::before{background:var(--warn)} .bt.warn .v{color:var(--warn)}
 .bt.bad{background:var(--bad-soft);border-color:transparent} .bt.bad::before{background:var(--bad)} .bt.bad .v{color:var(--bad)}
 
-/* Now(지금 할 것) 타일 — v33: 「완료 · 넘김」은 1행 키 오른쪽 12px 텍스트 버튼, 버튼 행 없음 */
+/* Now(지금 할 것) 타일 — v33: 「완료 · 넘김」은 1행 키 오른쪽 11px 텍스트 버튼(키와 baseline 정렬), 버튼 행 없음 */
 .bt.now{cursor:default}
 .bt.now .k,.bt.now .v,.bt.now .s{cursor:pointer}
-.now-act{grid-column:1;grid-row:1;justify-self:end;align-self:start;display:flex;gap:10px}
-.now-act button{appearance:none;font:inherit;font-size:12px;line-height:16.5px;padding:0;border:0;background:transparent;color:var(--ink-2);cursor:pointer;letter-spacing:0}
+.now-act{grid-column:1;grid-row:1;justify-self:end;align-self:baseline;display:flex;gap:10px}
+.now-act button{appearance:none;font:inherit;font-size:11px;line-height:1.5;padding:0;border:0;background:transparent;color:var(--ink-2);cursor:pointer;letter-spacing:0}
 .now-act button:hover{color:var(--ink);text-decoration:underline}
 
 /* 공부 · 커리어 탭 */
@@ -286,6 +285,8 @@ section.panel.sample .ph{border-bottom-style:dashed;border-bottom-color:var(--li
 .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--pc,var(--line-2))}
 .card.cur{background:var(--surface);border-color:var(--accent)}
 .card.done{opacity:.55}
+/* v33 스트라이프는 상태를 따른다: 시작 전 line-2 → 진행 중 --pc(플랫폼 색, 시작한 강의에만 지정) → 방치 warn → 수강기한 임박 bad → 완강 .done */
+.card.c-new::before{background:var(--line-2)} .card.c-stale::before{background:var(--warn)} .card.c-due::before{background:var(--bad)}
 .card .hd{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--ink-3);min-width:0;white-space:nowrap}
 .card .hd .pf{font-weight:600;color:var(--ink-2)}
 .card .hd .tag{font-size:10px;font-weight:600;padding:0 5px;border-radius:3px;background:var(--accent-soft);color:var(--accent-ink)}
